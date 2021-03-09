@@ -1,7 +1,6 @@
 const router = require("express").Router();
+const { test } = require("../controllers/BlogController");
 
-router.get("/", (req, res)=>{
-    res.send("success")
-})
+router.get("/", test);
 
 module.exports = router;
