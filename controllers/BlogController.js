@@ -17,7 +17,7 @@ module.exports = {
   findOne: async (req, res) => {
     try {
       const foundBlogPost = await Blog.findById(req.params.id);
-      res.json(foundBlogPost)
+      res.json(foundBlogPost);
     } catch (err) {
       console.log(err);
     }
@@ -34,5 +34,17 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
+  },
+
+  deleteOne: async (req, res) => {
+    try {
+      res.json(await Blog.findByIdAndDelete(req.params.id));
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  updateOne: async (req, res) => {
+    res.json("success");
   },
 };
