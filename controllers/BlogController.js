@@ -14,6 +14,15 @@ module.exports = {
     }
   },
 
+  findOne: async (req, res) => {
+    try {
+      const foundBlogPost = await Blog.findById(req.params.id);
+      res.json(foundBlogPost)
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
   postBlog: async (req, res) => {
     try {
       const newBlogPost = new Blog({
