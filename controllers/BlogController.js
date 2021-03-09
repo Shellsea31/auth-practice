@@ -13,4 +13,17 @@ module.exports = {
       console.log(err);
     }
   },
+
+  postBlog: async (req, res) => {
+    try {
+      const newBlogPost = new Blog({
+        title: req.body.title,
+        text: req.body.text,
+      });
+
+      res.json(await newBlogPost.save());
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };
