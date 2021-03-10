@@ -1,10 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import axios from "axios";
+import { useEffect } from "react";
 
 function App() {
+  const getAllBlogs = async () => {
+    const { data } = await axios.get("/blog");
+    console.log(data);
+  };
+
+  useEffect(() => {
+    getAllBlogs();
+  }, []);
+
   return (
     <div className="App">
-     <h1>Hello World</h1>
+      <h1>Hello World</h1>
     </div>
   );
 }
